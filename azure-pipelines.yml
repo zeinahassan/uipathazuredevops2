@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vm image: windows-latest
+  Default
 
 steps:
 - script: echo Hello, world!
@@ -18,16 +18,3 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
-- task: UiPathPack@4
-  inputs:
-    versionType: 'AutoVersion'
-    projectJsonPath: '$(Build.SourcesDirectory)'
-    outputType: 'Process'
-    orchestratorConnection: 'UiPath Azure'
-    outputPath: '$(Build.ArtifactStagingDirectory)\Output'
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
