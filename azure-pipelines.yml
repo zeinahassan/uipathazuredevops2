@@ -18,8 +18,10 @@ steps:
     echo See https://aka.ms/yaml
     echo $(Build.SourcesDirectory)
   displayName: 'Run a multi-line script'
-
-
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: 
 - task: UiPathInstallPlatform@4
   inputs:
     cliVersion: 'WIN_23.6.8581.19168'
